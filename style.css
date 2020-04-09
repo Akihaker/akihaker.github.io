@@ -1,0 +1,170 @@
+button:focus {
+    outline: none;
+}
+
+body {
+    background: #FFFFFF;
+}
+
+hr {
+    border: none;
+    color: red;
+    background: #0288D1;
+    height: 0.8px;
+    margin-bottom: 40px;
+}
+
+
+.LaTeX {
+    display: inline-block;
+    cursor: pointer;
+    color: #0000FF;
+    position: relative;
+    margin-bottom: 10px;
+    user-select: none;
+}
+
+.LaTeX:hover {
+    box-shadow: 0 0 1px #808080;
+}
+
+.LaTeX span {
+    display: none;
+}
+
+.LaTeX:hover span {
+    display: block;
+    background: #FFFACD;
+    box-shadow: 0 0 1px #808080;
+    padding: 5px 5px 5px 5px;
+    color: #000000;
+    width: 250px;
+    margin: 10px;
+    left: -100px;
+    top: 10px;
+    position: absolute;
+    z-index: 100;
+
+}
+
+.LaTeX:hover span:hover {
+    display: none;
+}
+
+
+/*///////////////////////*/
+#amount {
+    user-select: none; 
+    margin-bottom: 10px;
+}
+#amount span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #0288D1;
+    cursor: pointer;
+    text-align: center;
+}
+
+#maze {
+    width:30px;
+    text-align:center;
+}
+/*///////////////////////*/
+
+.choise {
+    width: 300px;
+    background: #03A9F4;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    margin-bottom: 5px;
+    text-align: left;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+}
+
+.choise:hover {
+    cursor: pointer;
+    background: #0288D1;
+}
+
+.choise2 {
+    width: 300px;
+    background: #0288D1;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    margin-bottom: 5px;
+    text-align: left;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+}
+
+
+#leftwindow {
+    height: 100%;
+    width: 300px;
+    top:0;
+    left:0;
+    position: fixed;
+    background: #03A9F4;
+}
+
+#leftfooter {
+    width: 300px;   
+    display: block;
+    text-align: right;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    margin-left: -20px;
+}
+
+#generate {
+    width: 180px;
+    background: #0288D1;
+    border: 1.5px solid #FFFFFF;
+    color: white;
+    padding: 10px 32px;
+    margin-left: 100px;
+    margin-bottom: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+#rightwindow {
+    margin-top: 30px;
+    position: relative;
+    left: 350px;
+    width: calc(100% - 400px);
+}
+
+.genning {
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 300px);
+    left: 300px;
+    top: 0;
+    z-index: 10213;
+    background: grey;
+    opacity: 0.5;
+}
+
+.genned {
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 300px);
+    left: 300px;
+    top: 0;
+    z-index: 101;
+    background: grey;
+    opacity: 0.0;
+}
+
