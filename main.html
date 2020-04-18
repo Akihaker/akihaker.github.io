@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="katex/katex.min.css">
+</head>
+<body>
+
+	<div id="leftwindow">
+		<button class="choise" id="polynom1">Линенйное неравенство</button>
+		<button class="choise" id="gaps">Операции со скобками</button>
+		<button class="choise" id="polynom2">Квадратное неравенство</button>
+		<button class="choise" id="fraction">Рациональное неравенство</button>
+		<button class="choise" id="system1">Cистема неравенств</button>
+		<button class="choise" id="system2">Совокупность неравенств</button>
+
+		<div id="leftfooter">
+			<div class="amount">
+				Сложность<br>
+			    <span class="spanbutton" id="decrease">-</span>
+			    <input type="text" id="maze" value="1" readonly>
+			    <span class="spanbutton" id="increase">+</span>
+			</div>
+			<div class="amount">
+				Ключ<br>
+				<input type="text" id="seed" maxlength="4" placeholder="0000">
+				<span class="spanbutton" id="randseed">R</span>
+			</div>
+		</div>
+		<button id="generate">Сгенерировать</button>
+		
+	</div>
+	
+
+	<div id="rightwindow">
+			<!-- from script -->
+			<div id="wtf"></div>
+	</div>
+
+
+
+	<script src="SQRT.js"></script>
+	<script src="katex/katex.min.js"></script>
+
+	<script src="ArrStr.js"></script>
+	<script src="Answer.js"></script>
+	<script src="j1.js"></script>
+	<script src="ListForGen.js"></script>
+	<script src="rand.js"></script>
+	<script src="EPolynom.js"></script>
+	<script src="GPolynom.js"></script>
+	<script src="FPolynom.js"></script>
+
+	<script>
+		document.getElementById("rightwindow").innerHTML = `
+		<h3>Ключ</h3>
+		Если ничего не вводить, генерация полностью случайна, так же как если ввести 0<br>
+		Иначе - псевдослучайна, при том же ключе в новой сессии сгенирируются те же примеры<br>
+		Добавление введущих нулей ни к чему не приводит. Ключ «0123» от «123» ничем не отличается<br>
+		Кнопка <span class="spanbutton" style="color: white;">R</span> придумает случайный ключ<br>
+		<h3>Примеры</h3>
+		Это пример линейного неравенства со сложностью 2.
+		<hr style="margin-top: 30px">
+		<div class="Buttons" style="position: absolute; right: 0; user-select: none;">
+			<div class="LaTeX" id="LaTeXButton_ex">[LaTeX]</div>
+			<div class="LaTeX" id="AnsButton_ex">[скрыть Ответ]</div>
+		</div>
+		<div id="generated_ex"></div>
+		<div id="answer_ex" style="margin-bottom: 5px; display: block; text-align: right;"></div>
+		<hr style="margin-bottom: 30px">
+		<p>На каждую генерацию выводится 20 похожих друг на друга примеров на одной странице</p>
+		<p>Изначально все ответы скрыты<br>
+		Для каждого отдельного примера можно показать/скрыть ответ специальной кнопкой<br>
+		В самом вверху находится кнопка(на этой странице ее нет), при помощи которой можно сделать аналогичные действия для всех примеров на странице</p>
+		</p>При нажатии на кнопку <div class="LaTeX">[LaTeX]</div> пример копируется в буфер обмена<br>
+		Копирование происходит в виде формулы LaTeX [<a href="https://ru.wikipedia.org/wiki/LaTeX" target="_blank">wiki</a>] [<a href="https://www.overleaf.com/" target="_blank">онлайн редактор</a>]</p>
+		<p>Копирование ответа не предусмотрено</p>`;
+
+		let examplestr = "3 < -3(2x-3)+3x";
+		let exampleans = "\\text{Ответ}: x \\in (-\\infty, 2)";
+		katex.render(examplestr, document.getElementById("generated_ex"));
+		katex.render(exampleans, document.getElementById("answer_ex"));
+		document.getElementById("LaTeXButton_ex").addEventListener("click", function () {
+			navigator.clipboard.writeText(`${examplestr}`)
+				.then(() => {})
+			  	.catch(err => {console.log('Something went wrong', err);});
+		}, false);
+		document.getElementById("AnsButton_ex").addEventListener("click", function () {
+			let textinbrackets = document.getElementById("AnsButton_ex").innerHTML;
+			document.getElementById("answer_ex").style.display = (textinbrackets == `[показать Ответ]`) ? `block` : `none`;
+			document.getElementById("AnsButton_ex").innerHTML = (textinbrackets == `[показать Ответ]`) ? `[скрыть Ответ]` : `[показать Ответ]`;
+		}, false);
+		
+	</script>
+
+	<!-- <script>
+		function writeex(bex) {
+			if (bex < 2) {
+				return;
+			}
+			document.getElementById("magic").style.opacity = "1";
+			let examplestr = "3 < -3(2x-3)+3x";
+			let exampleans = "\\text{Ответ}: x \\in (-\\infty, 2)";
+			katex.render(examplestr, document.getElementById("generated_ex"));
+			katex.render(exampleans, document.getElementById("answer_ex"));
+			document.getElementById("LaTeXButton_ex").addEventListener("click", function () {
+				navigator.clipboard.writeText(`${examplestr}`)
+					.then(() => {})
+				  	.catch(err => {console.log('Something went wrong', err);});
+			}, false);
+			document.getElementById("AnsButton_ex").addEventListener("click", function () {
+				let textinbrackets = document.getElementById("AnsButton_ex").innerHTML;
+				document.getElementById("answer_ex").style.display = (textinbrackets == `[показать Ответ]`) ? `block` : `none`;
+				document.getElementById("AnsButton_ex").innerHTML = (textinbrackets == `[показать Ответ]`) ? `[скрыть Ответ]` : `[показать Ответ]`;
+			}, false);
+			return;
+		}
+
+		function writeTextByJS(id, text, speed){
+			let ele = document.getElementById(id),
+			txt = text.split(""),
+			joy = "",
+			bex = 0;
+			let interval = setInterval(function(){
+				if(!txt[0]){
+					document.getElementById("magic").style.opacity = "1";
+					ele.innerHTML = joy;
+					writeex(bex);
+					return clearInterval(interval);
+				};
+				let firstsymbol = txt.shift();
+				if (firstsymbol == '@') {
+					bex += 1;
+				} else {
+					ele.innerHTML += firstsymbol;
+					joy += firstsymbol;
+					if (firstsymbol == '>') {
+						ele.innerHTML = joy;
+					}
+				}
+				writeex(bex);
+			}, speed != undefined ? speed : 20);
+		};
+		writeTextByJS("wtf", `<h3>Ключ</h3>
+		Если ничего не вводить, генерации полностью случайны, так же как если ввести 0<br>
+		Иначе генерация псевдослучайна, при том же ключе в новой сессии сгенирируются те же примеры<br>
+		Добавление введущих нулей ни к чему не приводит. Ключ «0123» от «123» ничем не отличается<br>
+		<h3>Примеры</h3>
+		Вот пример линейного неравенства со сложностью 2.
+		@
+		<hr style="margin-top: 30px">
+		<div id="magic" style="opacity: 1;">
+			<div class="Buttons" style="position: absolute; right: 0; user-select: none;">
+				<div class="LaTeX" id="LaTeXButton_ex">[LaTeX]</div>
+				<div class="LaTeX" id="AnsButton_ex">[скрыть Ответ]</div>
+			</div>
+			<div id="generated_ex">3<−3(2x−3)+3x</div>
+			<div id="answer_ex" style="margin-bottom: 5px; display: block; text-align: right;">Ответ:x∈(−∞,2)</div>
+		</div>
+		<hr style="margin-bottom: 30px">
+		@
+		<p>На каждую генерацию выводится 20 похожих друг на друга примеров на одной странице</p>
+		<p>Изначально все ответы скрыты<br>
+		Для каждого отдельного примера можно показать/скрыть ответ специальной кнопкой<br>
+		В самом вверху находится кнопка(на этой странице ее нет), при помощи которой можно сделать аналогичные действия для всех примеров на странице</p>
+		</p>При нажатии на кнопку <div style="color: #0000FF; display: inline-block">[LaTeX]</div> пример копируется в буфер обмена<br>
+		Копирование происходит в виде формулы LaTeX [<a href="https://ru.wikipedia.org/wiki/LaTeX" target="_blank">wiki</a>] [<a href="https://www.overleaf.com/" target="_blank">онлайн редактор</a>]</p>
+		<p>Копирование ответа не предусмотрено</p>`, 20);
+	</script>
+ -->
+
+</body>
+</html>

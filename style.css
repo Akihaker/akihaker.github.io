@@ -11,9 +11,15 @@ hr {
     color: red;
     background: #0288D1;
     height: 0.8px;
-    margin-bottom: 40px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    clear:both;
+    display:block;
 }
 
+a:visited {
+    color: #0000FF;
+}
 
 .LaTeX {
     display: inline-block;
@@ -21,7 +27,7 @@ hr {
     color: #0000FF;
     position: relative;
     margin-bottom: 10px;
-    user-select: none;
+    /*user-select: none;*/
 }
 
 .LaTeX:hover {
@@ -53,22 +59,27 @@ hr {
 
 
 /*///////////////////////*/
-#amount {
-    user-select: none; 
-    margin-bottom: 10px;
-}
-#amount span {
+.spanbutton {
     display: inline-block;
     width: 20px;
     height: 20px;
     background: #0288D1;
     cursor: pointer;
     text-align: center;
+    user-select: none;
+}
+.amount {
+    margin-bottom: 10px;
 }
 
 #maze {
     width:30px;
     text-align:center;
+}
+
+#seed {
+    width: 56px;
+    text-align: center;
 }
 /*///////////////////////*/
 

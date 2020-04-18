@@ -8,6 +8,8 @@ let signofmax = 1;
 let CopyLatex = new Array();
 let ShowAns = new Array();
 
+let seed = 0;
+
 
 
 
@@ -21,6 +23,31 @@ document.getElementById("increase").addEventListener("click", function () {
 	if (t < 3) t += 1;
 	document.getElementById("maze").value = t;
 }, false);
+
+document.getElementById("randseed").addEventListener("click", function () {
+	let t = MyRandomNnoseed(9999);
+	document.getElementById("seed").value = t;
+}, false)
+
+
+function validate(evt) {
+  var theEvent = evt || window.event;
+  var key = theEvent.keyCode || theEvent.which;
+  key = String.fromCharCode( key );
+  var regex = /[0-9]|\./;
+  if( !regex.test(key) ) {
+    theEvent.returnValue = false;
+    if(theEvent.preventDefault) theEvent.preventDefault();
+  }
+}
+
+document.getElementById("seed").onkeypress = function() {
+  validate(event);
+}
+
+document.getElementById("seed").onpaste = function() {
+  validate(event);
+}
 
 
 function Copy_LATEX() {
