@@ -85,7 +85,7 @@ function checkBox() {
 			document.getElementById("rightwindow").innerHTML += `
 			<div class="Buttons" style="position: relative; text-align: right; user-select: none;">
 				<div class="LaTeX" id="AllAns">[показать Все Ответы]</div>
-				<div class="LaTeX" id="print" style="color: red">[pdf/печать]</div>
+				<div class="LaTeX" id="print">[pdf/печать]</div>
 			</div>
 			`;
 		}

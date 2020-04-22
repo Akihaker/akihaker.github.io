@@ -87,14 +87,15 @@ function Copy_LATEX() {
 
 		// let mywindow = window.open('', 'PRINT', 'height=400,width=600');
 		// mywindow.document = document;
-	 //    // mywindow.document.write(document.body.innerHTML);
+	 //    mywindow.document.write(document.body.innerHTML);
 
 	 //    mywindow.document.close(); // necessary for IE >= 10
 	 //    mywindow.focus(); // necessary for IE >= 10*/
 
-	    window.print();
+	 //    mywindow.print();
 	 //    mywindow.close();
 
+	 	window.print();
 		for (let i = 0; i < all.length; ++i) {
 			all[i].style.display = "inline-block";
 		}
