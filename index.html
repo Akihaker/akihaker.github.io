@@ -24,7 +24,7 @@
 			</div>
 			<div class="amount">
 				Ключ<br>
-				<input type="text" id="seed" maxlength="4" placeholder="0000">
+				<input type="password" id="seed" maxlength="4" placeholder="0000">
 				<span class="spanbutton" id="randseed">R</span>
 			</div>
 		</div>
@@ -32,12 +32,11 @@
 		
 	</div>
 	
-
+	
 	<div id="rightwindow">
 			<!-- from script -->
-			<div id="wtf"></div>
+			<!-- <div id="wtf"></div> -->
 	</div>
-
 
 
 	<script src="SQRT.js"></script>
@@ -99,6 +98,7 @@
 			if (bex < 2) {
 				return;
 			}
+			print();
 			document.getElementById("magic").style.opacity = "1";
 			let examplestr = "3 < -3(2x-3)+3x";
 			let exampleans = "\\text{Ответ}: x \\in (-\\infty, 2)";
@@ -140,7 +140,7 @@
 					}
 				}
 				writeex(bex);
-			}, speed != undefined ? speed : 20);
+			}, speed != undefined ? speed : 1);
 		};
 		writeTextByJS("wtf", `<h3>Ключ</h3>
 		Если ничего не вводить, генерации полностью случайны, так же как если ввести 0<br>
@@ -166,9 +166,10 @@
 		В самом вверху находится кнопка(на этой странице ее нет), при помощи которой можно сделать аналогичные действия для всех примеров на странице</p>
 		</p>При нажатии на кнопку <div style="color: #0000FF; display: inline-block">[LaTeX]</div> пример копируется в буфер обмена<br>
 		Копирование происходит в виде формулы LaTeX [<a href="https://ru.wikipedia.org/wiki/LaTeX" target="_blank">wiki</a>] [<a href="https://www.overleaf.com/" target="_blank">онлайн редактор</a>]</p>
-		<p>Копирование ответа не предусмотрено</p>`, 20);
-	</script>
- -->
+		<p>Копирование ответа не предусмотрено</p>`, 1);
+	</script> -->
+
+
 
 </body>
 </html>

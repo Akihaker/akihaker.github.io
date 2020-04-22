@@ -1,7 +1,7 @@
 
 function checkBox() {
 	let maze = parseInt(document.getElementById("maze").value);
-	seed = parseInt(document.getElementById("seed").value) || 0;
+	seed = parseInt(document.getElementById("seed").value) || document.getElementById("seed").placeholder;
 
 	seednow = seed;
 	pnow = p;
@@ -14,7 +14,7 @@ function checkBox() {
 	let s2 = (document.getElementById("system2").className == "choise2");
 
 	if (!v1 && !v2 && !g && !f && !s1 && !s2) {
-		alert("Выберите какую-нибудь тему");
+		alert("Выберите какую-нибудь тему")
 		return;
 	}
 
@@ -83,11 +83,10 @@ function checkBox() {
 
 		if (question == 0) {
 			document.getElementById("rightwindow").innerHTML += `
-			<div class="Buttons" style="position: absolute; right: 0;">
+			<div class="Buttons" style="position: relative; text-align: right; user-select: none;">
 				<div class="LaTeX" id="AllAns">[показать Все Ответы]</div>
-				<!--<div class="LaTeX" id="Main" style="color: red">[?]<span>позже</span></div>-->
+				<div class="LaTeX" id="print" style="color: red">[pdf/печать]</div>
 			</div>
-			<br><br>
 			`;
 		}
 		
