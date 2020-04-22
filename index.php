@@ -26,6 +26,7 @@
 				Ключ<br>
 				<input type="password" id="seed" maxlength="4" placeholder="0000">
 				<span class="spanbutton" id="randseed">R</span>
+				<!-- <span class="spanbutton" id="showseed">S</span> -->
 			</div>
 		</div>
 		<button id="generate">Сгенерировать</button>
@@ -36,6 +37,9 @@
 	<div id="rightwindow">
 			<!-- from script -->
 			<!-- <div id="wtf"></div> -->
+			<?php 
+         		echo "Привет, я - скрипт PHP!"; 
+         	?>
 	</div>
 
 
@@ -51,7 +55,7 @@
 	<script src="GPolynom.js"></script>
 	<script src="FPolynom.js"></script>
 
-	<script>
+	<!-- <script>
 		document.getElementById("rightwindow").innerHTML = `
 		<h3>Ключ</h3>
 		Если ничего не вводить, генерация полностью случайна, так же как если ввести 0<br>
@@ -91,7 +95,7 @@
 			document.getElementById("AnsButton_ex").innerHTML = (textinbrackets == `[показать Ответ]`) ? `[скрыть Ответ]` : `[показать Ответ]`;
 		}, false);
 		
-	</script>
+	</script> -->
 
 	<!-- <script>
 		function writeex(bex) {

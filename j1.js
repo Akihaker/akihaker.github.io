@@ -11,8 +11,6 @@ let ShowAns = new Array();
 let seed = 0;
 
 
-
-
 document.getElementById("decrease").addEventListener("click", function () {
 	let t = parseInt(document.getElementById("maze").value);
 	if (t > 1) t -= 1;
