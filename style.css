@@ -118,6 +118,15 @@ a:visited {
     font-size: 16px;
 }
 
+input {
+  background-color: red;
+}
+/* ---- Desktop */
+@media only screen and (max-width: 500px) {
+    input {
+        background-color: black;
+    } 
+}
 
 #leftwindow {
     height: 100%;
@@ -182,4 +191,3 @@ a:visited {
     background: grey;
     opacity: 0.0;
 }
-
