@@ -188,10 +188,8 @@ a:visited {
     .Buttons {
         position: relative;
         text-align: right;
-        /*right: 0;*/
         user-select: none;
     }
-
 }
 
 @media print {
