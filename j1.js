@@ -71,40 +71,9 @@ function Copy_LATEX() {
 	
 	document.getElementById("AllAns").addEventListener("click", SHALLAnswers, false);
 	document.getElementById("print").addEventListener("click", function () {
-		// document.getElementById("leftwindow").style.display = "none";
-		// document.getElementById("rightwindow").style.left = "0";
-		// document.getElementById("rightwindow").style.width = "100%";
-		// let all = document.getElementsByClassName("LaTeX");
-		// for (let i = 0; i < all.length; ++i) {
-		// 	all[i].style.display = "none";
-		// }
-		// let allhr = document.querySelectorAll("hr");
-		// for (let i = 0; i < allhr.length; ++i) {
-		// 	allhr[i].style.display = "none";
-		// }
-
-		// let mywindow = window.open('', 'PRINT', 'height=400,width=600');
-		// mywindow.document = document;
-	    // mywindow.document.write(document.body.innerHTML);
-
-	    // mywindow.document.close(); // necessary for IE >= 10
-	    // mywindow.focus(); // necessary for IE >= 10*/
-
-	    // mywindow.print();
-	    // mywindow.close();
-
 	 	window.print();
-		// for (let i = 0; i < all.length; ++i) {
-		// 	all[i].style.display = "inline-block";
-		// }
-		// for (let i = 0; i < allhr.length; ++i) {
-		// 	allhr[i].style.display = "block";
-		// }
-		// document.getElementById("rightwindow").style.width = "calc(100% - 400px)";
-		// document.getElementById("rightwindow").style.left = "350px";
-		// document.getElementById("leftwindow").style.display = "block";
-
 	}, false);
+	document.getElementById("rightwindow").scrollIntoView({behavior: "smooth"});
 }
 
 function SHALLAnswers() {
