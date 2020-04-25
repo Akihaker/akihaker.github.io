@@ -2,41 +2,45 @@
 <html>
 <head>
 	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" type="text/css" href="katex/katex.min.css">
 </head>
 <body>
 
-	<div id="leftwindow">
-		<button class="choise" id="polynom1">Линенйное неравенство</button>
-		<button class="choise" id="gaps">Операции со скобками</button>
-		<button class="choise" id="polynom2">Квадратное неравенство</button>
-		<button class="choise" id="fraction">Рациональное неравенство</button>
-		<button class="choise" id="system1">Cистема неравенств</button>
-		<button class="choise" id="system2">Совокупность неравенств</button>
+	<div id="windows">
+		<div id="leftwindow">
+			<button class="choise" id="polynom1">Линенйное неравенство</button>
+			<button class="choise" id="gaps">Операции со скобками</button>
+			<button class="choise" id="polynom2">Квадратное неравенство</button>
+			<button class="choise" id="fraction">Рациональное неравенство</button>
+			<button class="choise" id="system1">Cистема неравенств</button>
+			<button class="choise" id="system2">Совокупность неравенств</button>
 
-		<div id="leftfooter">
-			<div class="amount">
-				Сложность<br>
-			    <span class="spanbutton" id="decrease">-</span>
-			    <input type="text" id="maze" value="1" readonly>
-			    <span class="spanbutton" id="increase">+</span>
+			<div id="leftfooter">
+				<div class="amount">
+					Сложность<br>
+				    <span class="spanbutton" id="decrease">-</span>
+				    <input type="text" id="maze" value="1" readonly>
+				    <span class="spanbutton" id="increase">+</span>
+				</div>
+				<div class="amount">
+					Ключ<br>
+					<input type="password" id="seed" maxlength="4" placeholder="0000">
+					<span class="spanbutton" id="randseed">R</span>
+					<!-- <span class="spanbutton" id="showseed">S</span> -->
+				</div>
+				<button id="generate">Сгенерировать</button>
 			</div>
-			<div class="amount">
-				Ключ<br>
-				<input type="password" id="seed" maxlength="4" placeholder="0000">
-				<span class="spanbutton" id="randseed">R</span>
-				<!-- <span class="spanbutton" id="showseed">S</span> -->
-			</div>
+			
+			
 		</div>
-		<button id="generate">Сгенерировать</button>
 		
-	</div>
-	
-	
-	<div id="rightwindow">
-			<!-- from script -->
-			<!-- <div id="wtf"></div> -->
+		
+		<div id="rightwindow">
+				<!-- from script -->
+				<!-- <div id="wtf"></div> -->
+		</div>
 	</div>
 
 
