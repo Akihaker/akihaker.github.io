@@ -26,6 +26,12 @@ a:visited {
     color: #0000FF;
 }
 
+.Buttons {
+    position: absolute;
+    right: 0;
+    user-select: none;
+}
+
 .LaTeX {
     display: inline-block;
     cursor: pointer;
@@ -179,12 +185,16 @@ a:visited {
         margin-left: 25px;
         width: calc(100% - 50px);
     }
+    .Buttons {
+        position: relative;
+        text-align: right;
+        /*right: 0;*/
+        user-select: none;
+    }
+
 }
 
 @media print {
-    body {
-        background: red;
-    }
     .LaTeX {
         display: none;
     }

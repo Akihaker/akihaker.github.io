@@ -83,7 +83,7 @@ function checkBox() {
 
 		if (question == 0) {
 			document.getElementById("rightwindow").innerHTML += `
-			<div class="Buttons" style="position: relative; text-align: right; user-select: none;">
+			<div class="Buttons" style="position: relative; text-align: right;">
 				<div class="LaTeX" id="AllAns">[показать Все Ответы]</div>
 				<div class="LaTeX" id="print">[pdf/печать]</div>
 			</div>
@@ -93,14 +93,15 @@ function checkBox() {
 		
 		document.getElementById("rightwindow").innerHTML += `
 
-		<div class="Buttons" style="position: absolute; right: 0; user-select: none;">
+		<div class="Buttons">
 			<div class="LaTeX" id="LaTeXButton${question}">[LaTeX]</div>
 			<div class="LaTeX" id="AnsButton${question}">[показать Ответ]</div>
 		</div>
 		<div id="generated${question}" style="margin-bottom: 5px"></div>
 		
 		<div id="answer${question}" style="margin-bottom: 5px; display: none; text-align: right;"></div>
-		<hr>`;
+		<hr>
+		`;
 		
 		ans = `\\text{Ответ}: x \\in ` + ans;
 
