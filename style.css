@@ -160,6 +160,10 @@ a:visited {
     cursor: pointer;
 }
 
+#polynom1 {
+    margin-top: 5px;
+}
+
 
 #rightwindow {
     padding-top: 30px;
