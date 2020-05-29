@@ -102,7 +102,29 @@ function ConstrE(degree, maze) {
 
 			ATpolynom(finalp, Mult2polynoms(d, Mult2polynoms(p1, p2)));
 
-			let p = [-finalp[0], 0, 0];
+			let pb = MyRandom(3, 0);
+			if (pb == -finalp[1]) {
+				pb = 0;
+			}
+			let pc = MyRandom(5, 0);
+			if (pc == -finalp[2]) {
+				pc = 0;
+			}
+
+			if (pc != 0 && pb != 0) {
+				if (MyRandomBool()) {
+					if (MyRandomBool()) {
+						pc = 0;
+					} else {
+						pb = 0;
+					}
+				} else if (MyRandomN(8) < 6) {
+					pc = 0;
+					pb = 0;
+				}
+			}
+
+			let p = [-finalp[0], pb, pc];
 			arr.push(0);
 			arr.push(p);
 			ATpolynom(finalp, p);

@@ -48,12 +48,29 @@ function checkBox() {
 		} else if (f) {
 			arr = ConstrF(maze);
 		} else if (s1 || s2) {
-			zc1 = ConstrE(1, maze);
+			let maze1;
+			let maze2;
+
+			if (maze == 1) {
+				maze1 = 1;
+				maze2 = 1;
+			} else if (maze == 2) {
+				maze1 = 1;
+				maze2 = 2;
+				if (MyRandomBool()) {
+					[maze1, maze2] = [maze2, maze1];
+				}
+			} else {
+				maze1 = 2;
+				maze2 = 2;
+			}
+
+			zc1 = ConstrE(1, maze1);
 			addzero(zc1[1]);
 			let zs1 = genSign();
 			let localgap1 = zs1[1];
 
-			zc2 = ConstrE(1, maze);
+			zc2 = ConstrE(1, maze2);
 			addzero(zc2[1]);
 			let zs2 = genSign();
 			let localgap2 = zs2[1];
