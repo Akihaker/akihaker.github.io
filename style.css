@@ -168,8 +168,10 @@ a:visited {
 #rightwindow {
     padding-top: 30px;
     position: relative;
-    margin-left: 350px;
+    margin-left: 300px;
+    padding-left: 50px;
     width: calc(100% - 400px);
+    padding-bottom: 30px;
 }
 
 

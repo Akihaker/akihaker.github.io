@@ -1,7 +1,11 @@
 
 function checkBox() {
+	
 	let maze = parseInt(document.getElementById("maze").value);
-	seed = parseInt(document.getElementById("seed").value) || document.getElementById("seed").placeholder;
+	seed = parseInt(document.getElementById("seed").value);
+	if (isNaN(seed)) {
+		seed = document.getElementById("seed").placeholder;
+	}
 
 	seednow = seed;
 	pnow = p;

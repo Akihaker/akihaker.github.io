@@ -1,4 +1,6 @@
+
 function ConstrF(maze) {
+
 	let arr = new Array();
 	if (maze == 1) {
 		arr.push(0);
@@ -48,10 +50,13 @@ function ConstrF(maze) {
 	} else if (maze == 3) {
 		arr.push(0);
 
+		let z1 = [0, 0, (MyRandomBool()) ? 1 : -1];
+		let z2 = [0, 0, (MyRandomBool()) ? 1 : -1];
+
 		let zc1 = [0, MyRandom(3), MyRandom(6)];
-		let zc2 = [0, MyRandom(3), MyRandom(6)];
+		let zc2 = [0, Math.abs(MyRandom(3)), MyRandom(6)];
 		if (zc2[1] == 0) {
-			zc2[2] = (MyRandomN(5) + 1) * (MyRandomBool() ? -1 : 1);
+			zc2[2] = Math.abs((MyRandomN(5) + 1) * (MyRandomBool() ? -1 : 1));
 		}
 		if (zc1[1] == 0) {
 			zc1[2] = (MyRandomN(5) + 1) * (MyRandomBool() ? -1 : 1);
@@ -60,7 +65,9 @@ function ConstrF(maze) {
 			zc2[1] = 1;
 		}
 
-		arr.push([0, 0, 1]);
+		
+
+		arr.push(z1);
 		arr.push(1);
 		arr.push(`\\dfrac{`);
 		arr.push(zc1);
@@ -74,15 +81,15 @@ function ConstrF(maze) {
 		let zc4;
 		if (zc1[1] != 0) {
 			if (zc2[1] != 0) {
-				zc4 = MyRandomBool() ? zc2.slice() : [0, 0, MyRandomN(5, 1)];
+				zc4 = MyRandomBool() ? zc2.slice() : [0, 0, Math.abs(MyRandomN(5, 1))];
 			} else {
-				zc4 = [0, 0, MyRandomN(5, 1)];
+				zc4 = [0, 0, Math.abs(MyRandomN(5, 1))];
 			}
 			
 		} else {
-			zc4 = [0, MyRandom(3), MyRandom(6)];
+			zc4 = [0, Math.abs(MyRandom(3)), MyRandom(6)];
 			if (zc4[1] == 0) {
-				zc4[2] = MyRandomN(5, 1);
+				zc4[2] = Math.abs(MyRandomN(5, 1));
 			}
 		}
 		if (zc2[1] != 0 && !Comp2polynoms(zc4, zc2)) {
@@ -95,12 +102,8 @@ function ConstrF(maze) {
 		}
 
 		if (zc3[1] == 0 && zc4[1] == 0) {
-			if (zc4[2] < 0) {
-				zc4[2] *= -1;
-				zc3[2] *= -1;
-			}
 			let i = 2;
-			while (i <= zc3[2] && i <= zc4[2]) {
+			while (i <= Math.abs(zc3[2]) && i <= Math.abs(zc4[2])) {
 				if (zc3[2] % i == 0 && zc4[2] % i == 0) {
 					zc3[2] /= i;
 					zc4[2] /= i;
@@ -115,9 +118,9 @@ function ConstrF(maze) {
 			zc3 = Mult2polynoms(zc3, [0, 0, -1]);
 		}
 		if (zc4[2] == 1 && zc4[1] == 0) {
-			arr.push(zc3);
+			arr.push(Mult2polynoms(z2, zc3));
 		} else {
-			arr.push([0, 0, 1]);
+			arr.push(z2);
 			arr.push(1);
 			arr.push(`\\dfrac{`);
 			arr.push(zc3);
@@ -126,7 +129,7 @@ function ConstrF(maze) {
 			arr.push(`}`);
 		}
 
-		let zc = Sum2polynoms(Mult2polynoms(zc1, zc4), Mult2polynoms(zc3, zc2));
+		let zc = Sum2polynoms(Mult2polynoms(z1, Mult2polynoms(zc1, zc4)), Mult2polynoms(z2, Mult2polynoms(zc3, zc2)));
 		addzero(zc);
 		zc = Mult2polynoms(zc2, zc4);
 		addzero(zc, true);
